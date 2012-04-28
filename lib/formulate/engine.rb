@@ -1,10 +1,10 @@
 module Formulate
   class Engine < ::Rails::Engine
-    initializer 'formulate.initialize' do |app|
+    initializer 'formulate.initialize', before: 'action_view.set_configs' do |app|
+      app.config.action_view.default_form_builder = Formulate::FormBuilder
+
       ActiveSupport.on_load(:action_view) do
         include Formulate::FormHelper
-
-        app.config.default_form_builder = Formulate::FormBuilder
       end
     end
   end
