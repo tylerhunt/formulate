@@ -44,7 +44,7 @@ To customize the styles, you may set any of the variables used by the style
 sheet before importing it:
 
 ``` sass
-$input_focus_border_color: $blue
+$input-focus-border-color: $blue
 $submit-button-color: $blue
 
 @import formulate
