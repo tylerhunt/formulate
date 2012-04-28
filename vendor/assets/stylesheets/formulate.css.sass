@@ -1,0 +1,187 @@
+$line-height: 1.5 !default
+$spacer-size: 1.5em !default
+$border-width: 0.125em !default
+
+$fieldset-border-color: #EEE !default
+$fieldset-legend-color: #999 !default
+
+$input-border-color: #CCC !default
+$input-readonly-border-color: #EEE !default
+$input-focus-border-color: #666 !default
+
+$button-color: #999 !default
+$button-text-color: #FFF !default
+
+$submit-border-color: #EEE !default
+$submit-button-color: #999 !default
+
+$label-color: #000
+$label-optional-color: #666
+
+$error-color: #F33 !default
+$instructions-color: #666 !default
+
+@mixin button($color: $button-color)
+  -webkit-appearance: none
+  background: $color
+  border: $border-width solid $color
+  color: $button-text-color
+  display: inline-block
+  font-weight: bold
+  line-height: 1.125em
+  margin-right: 0.25em
+  padding: 0.25em 0.5em
+  text-decoration: none
+
+form.formulate
+  margin: $spacer-size 0
+
+  a,
+  div,
+  fieldset,
+  form,
+  label,
+  legend,
+  ol,
+  p,
+  span,
+  ul
+    border: 0
+    font-family: inherit
+    font-size: 100%
+    font-style: inherit
+    font-weight: inherit
+    line-height: 1
+    margin: 0
+    padding: 0
+    vertical-align: baseline
+
+  ol,
+  ul
+    list-style: none
+
+  input,
+  select,
+  textarea,
+  p.readonly
+    border: $border-width solid $input-border-color
+    font-family: 'Helvetica', sans-serif
+    font-size: 1em
+    margin: 0
+    padding: 0.25em
+
+    &:focus
+      border-color: $input-focus-border-color
+      outline: none
+
+  p.readonly
+    border-color: $input-readonly-border-color
+    line-height: 1.125em
+
+  a.button
+    @include button
+
+  fieldset
+    border-top: $border-width solid $fieldset-border-color
+    margin: ($spacer-size / 2) 0
+    padding-top: $spacer-size
+
+    legend
+      color: $fieldset-legend-color
+      font-size: 0.75em
+      font-weight: bold
+      padding-right: (0.5em / 0.75)
+      text-transform: uppercase
+
+    fieldset
+      margin-left: $spacer-size * 2
+
+    & > p
+      margin-bottom: $spacer-size
+
+    .section
+      clear: left
+
+      .field
+        float: left
+        margin-right: $spacer-size * 2
+
+  .field
+    margin-bottom: $spacer-size
+
+    label
+      color: $label-color
+      display: block
+      line-height: $line-height
+
+    &.required label
+      font-weight: bold
+
+    &.optional label
+      color: $label-optional-color
+      font-style: italic
+
+    &.checkbox,
+    &.radio
+      white-space: nowrap
+
+      input
+        display: inline
+        margin-right: 0.5em
+        width: inherit
+
+    p
+      font-size: 0.875em
+      font-style: italic
+      line-height: $line-height / 0.875
+
+      &.instructions
+        color: $instructions-color
+
+  .submit
+    border-top: $border-width solid $submit-border-color
+    overflow: auto
+    padding-top: $spacer-size
+
+    input
+      @include button($submit-button-color)
+
+    a
+      font-weight: bold
+      margin: 0 0.25em
+
+    nav
+      margin: $spacer-size 0
+
+      ul
+        float: left
+        margin-right: $spacer-size
+
+        li a
+          font-weight: normal
+          margin: 0
+          line-height: $line-height
+
+  .errors
+    color: $error-color
+    border-color: $error-color
+
+    legend
+      color: $error-color
+      border-color: $error-color
+
+    ul
+      margin-bottom: $spacer-size
+
+      li
+        list-style: disc
+        line-height: $line-height
+
+  .field_with_errors
+    label
+      color: $error-color
+
+    input,
+    select,
+    textarea
+      border-color: $error-color

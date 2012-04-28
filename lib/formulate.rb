@@ -1,5 +1,9 @@
 require 'formulate/version'
+require 'formulate/engine'
 
 module Formulate
-  # Your code goes here...
+  extend ActiveSupport::Autoload
+
+  autoload :FormBuilder
+  autoload :FormHelper
 end
