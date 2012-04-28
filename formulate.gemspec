@@ -1,17 +1,18 @@
-# -*- encoding: utf-8 -*-
-require File.expand_path('../lib/formulate/version', __FILE__)
+require './lib/formulate/version'
 
 Gem::Specification.new do |gem|
-  gem.authors       = ["Tyler Hunt"]
-  gem.email         = ["tyler@tylerhunt.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""
+  gem.name = 'formulate'
+  gem.version = Formulate::VERSION
+  gem.summary = 'Rails form builder with flexible markup and styles.'
+  gem.homepage = 'http://github.com/tylerhunt/formulate'
+  gem.author = 'Tyler Hunt'
 
-  gem.files         = `git ls-files`.split($\)
-  gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
-  gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
-  gem.name          = "formulate"
-  gem.require_paths = ["lib"]
-  gem.version       = Formulate::VERSION
+  gem.files = `git ls-files`.split($\)
+  gem.executables = gem.files.grep(%r{^bin/}).map { |f| File.basename(f) }
+  gem.test_files = gem.files.grep(%r{^(test|spec|features)/})
+  gem.require_paths = ['lib']
+
+  gem.add_dependency 'actionpack', '>= 3.0'
+  gem.add_dependency 'activesupport', '>= 3.0'
+  gem.add_dependency 'sass-rails', '>= 3.0'
 end
