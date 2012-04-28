@@ -38,7 +38,7 @@ Formulate's styles are all scoped under the selector
 `form.formulate`, so it shouldn't clobber anything in your own applications.
 
 
-## Customizing Styles
+### Customizing Styles
 
 To customize the styles, you may set any of the variables used by the style
 sheet before importing it:
