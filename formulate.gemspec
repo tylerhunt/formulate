@@ -11,6 +11,7 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'actionpack', '>= 3.0'
   gem.add_dependency 'activesupport', '>= 3.0'
+  gem.add_dependency 'carmen', '~> 0.2.0'
   gem.add_dependency 'haml', '>= 3.0'
   gem.add_dependency 'sass-rails', '>= 3.0'
 

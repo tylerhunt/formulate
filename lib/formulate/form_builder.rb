@@ -1,3 +1,5 @@
+require 'carmen'
+
 module Formulate
   class FormBuilder < ActionView::Helpers::FormBuilder
     def errors
@@ -72,6 +74,14 @@ module Formulate
         when :time_zone_select
           priority_zones = options.delete(:priority_zones)
           send(type, method, priority_zones, options)
+        when :state_select
+          country = options.delete(:country) || Carmen.default_country
+          html_options = options.delete(:html) || {}
+          send(type, method, country, options, html_options)
+        when :country_select
+          priority_countries = options.delete(:priority_countries)
+          html_options = options.delete(:html) || {}
+          send(type, method, priority_countries, options, html_options)
         else
           send(type, method, options)
       end
@@ -147,6 +157,14 @@ module Formulate
 
     def date_time(method, options={}, &block)
       input(method, options.merge(type: :datetime_select), &block)
+    end
+
+    def state(method, options={}, &block)
+      input(method, options.merge(type: :state_select), &block)
+    end
+
+    def country(method, options={}, &block)
+      input(method, options.merge(type: :country_select), &block)
     end
 
     def expiration(method, options={}, &block)
