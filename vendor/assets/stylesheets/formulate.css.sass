@@ -63,7 +63,7 @@ form.formulate
   input,
   select,
   textarea,
-  p.readonly
+  div.readonly
     border: $border-width solid $input-border-color
     font-family: 'Helvetica', sans-serif
     font-size: 1em
@@ -74,9 +74,10 @@ form.formulate
       border-color: $input-focus-border-color
       outline: none
 
-  p.readonly
+  div.readonly
     border-color: $input-readonly-border-color
-    line-height: 1.125em
+    font-size: 1em
+    line-height: 1.125
 
   a.button
     @include button
