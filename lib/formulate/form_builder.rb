@@ -42,12 +42,12 @@ module Formulate
       instructions = options.delete(:instructions)
       errors = errors_on(method)
 
-      style = ['field']
-      style << (options.delete(:required) ? 'required' : 'optional')
-      style << 'checkbox' if type == :check_box
-      style << 'radio' if type == :radio_button
-      style << options.delete(:style) if options[:style]
-      style.uniq!
+      classes = ['field']
+      classes << (options.delete(:required) ? 'required' : 'optional')
+      classes << 'checkbox' if type == :check_box
+      classes << 'radio' if type == :radio_button
+      classes << options.delete(:class) if options[:class]
+      classes.uniq!
 
       input = case type
         when :check_box
@@ -97,7 +97,7 @@ module Formulate
       end
 
       @template.capture_haml do
-        @template.haml_tag(:div, class: style.join(' ')) do
+        @template.haml_tag(:div, class: classes.join(' ')) do
           @template.haml_concat(markup.join)
         end
       end
