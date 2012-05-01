@@ -1,0 +1,35 @@
+$line-height: 1.5 !default
+$spacer-size: 1.5em !default
+$border-width: 0.125em !default
+
+$fieldset-border-color: #EEE !default
+$fieldset-legend-color: #999 !default
+
+$input-background-color: #FFF !default
+$input-border-color: #CCC !default
+$input-disabled-border-color: #EEE !default
+$input-focus-border-color: #666 !default
+
+$button-color: #999 !default
+$button-text-color: #FFF !default
+
+$submit-border-color: #EEE !default
+$submit-button-color: #999 !default
+
+$label-color: #000
+$label-optional-color: #666
+
+$error-color: #F33 !default
+$instructions-color: #666 !default
+
+@mixin button($color: $button-color)
+  -webkit-appearance: none
+  background: $color
+  border: $border-width solid $color
+  color: $button-text-color
+  display: inline-block
+  font-weight: bold
+  line-height: 1.125em
+  margin-right: 0.25em
+  padding: 0.25em 0.5em
+  text-decoration: none
