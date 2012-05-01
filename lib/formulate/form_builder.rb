@@ -84,14 +84,14 @@ module Formulate
           send(type, method, priority_countries, options, html_options)
         else
           send(type, method, options)
-      end
+      end unless block_given?
 
       label = options[:label] != false ? label(method, options[:label]) : nil
       markup = [label, input].compact
       markup.reverse! if type.in?(:check_box, :radio_button)
 
       markup << @template.capture_haml do
-        yield(self) if block_given?
+        yield(object.send(method)) if block_given?
         errors_list(errors)
         instructions(instructions)
       end
