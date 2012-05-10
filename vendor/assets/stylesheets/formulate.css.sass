@@ -4,6 +4,11 @@
 form.formulate
   margin: $spacer-size 0
 
+  label
+    color: $label-color
+    display: block
+    line-height: $line-height
+
   input,
   select,
   textarea
@@ -51,11 +56,6 @@ form.formulate
 
   .field
     margin-bottom: $spacer-size
-
-    label
-      color: $label-color
-      display: block
-      line-height: $line-height
 
     &.required label
       font-weight: bold
