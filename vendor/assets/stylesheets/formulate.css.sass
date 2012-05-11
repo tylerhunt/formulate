@@ -73,6 +73,15 @@ form.formulate
         margin-right: 0.5em
         width: inherit
 
+    &.error
+      label
+        color: $error-color
+
+      input,
+      select,
+      textarea
+        border-color: $error-color
+
     p
       font-size: 0.875em
       font-style: italic
@@ -119,12 +128,3 @@ form.formulate
       li
         list-style: disc
         line-height: $line-height
-
-  .field_with_errors
-    label
-      color: $error-color
-
-    input,
-    select,
-    textarea
-      border-color: $error-color

@@ -48,6 +48,7 @@ module Formulate
       classes << (options.delete(:required) ? 'required' : 'optional')
       classes << 'checkbox' if type == :check_box
       classes << 'radio' if type == :radio_button
+      classes << 'error' if errors.any?
       classes << options.delete(:class) if options[:class]
       classes.uniq!
 
