@@ -39,6 +39,8 @@ module Formulate
 
     def input(method, options={}, &block)
       type = options.delete(:type)
+      prefix = options.delete(:prefix)
+      suffix = options.delete(:suffix)
       instructions = options.delete(:instructions)
       errors = errors_on(method)
 
@@ -87,7 +89,7 @@ module Formulate
       end unless block_given?
 
       label = options[:label] != false ? label(method, options[:label]) : nil
-      markup = [label, input].compact
+      markup = [label, prefix, input, suffix].compact
       markup.reverse! if type.in?(:check_box, :radio_button)
 
       markup << @template.capture_haml do
