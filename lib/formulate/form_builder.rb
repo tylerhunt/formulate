@@ -39,6 +39,7 @@ module Formulate
 
     def input(method, options={}, &block)
       type = options.delete(:type)
+      label = options.delete(:label)
       prefix = options.delete(:prefix)
       suffix = options.delete(:suffix)
       instructions = options.delete(:instructions)
@@ -89,7 +90,7 @@ module Formulate
           send(type, method, options)
       end unless block_given?
 
-      label = options[:label] != false ? label(method, options[:label]) : nil
+      label = label != false ? label(method, label) : nil
       markup = [label, prefix, input, suffix].compact
       markup.reverse! if type.in?(:check_box, :radio_button)
 
