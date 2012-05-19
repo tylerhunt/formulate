@@ -1,5 +1,4 @@
 @import formulate/defaults
-@import formulate/reset
 
 form.formulate
   margin: $spacer-size 0
@@ -12,22 +11,47 @@ form.formulate
   input,
   select,
   textarea
+    -moz-box-sizing: content-box
+    -ms-box-sizing: content-box
+    -webkit-box-sizing: content-box
+    box-sizing: content-box
     background: $input-background-color
     border: $border-width solid $input-border-color
     font-family: $input-font-family
     font-size: 1em
     margin: 0
     padding: 0.25em
+    vertical-align: top
 
     &:focus
       border-color: $input-focus-border-color
       outline: none
 
-  input[disabled]
-    border-color: $input-disabled-border-color
+  input
+    height: 1.25em
 
-  a.button
-    @include button
+    &[type="checkbox"],
+    &[type="radio"]
+      height: auto
+      padding: 0
+      vertical-align: baseline
+      width: auto
+
+      &:focus
+        outline: thin dotted #333
+        outline: 5px auto -webkit-focus-ring-color
+
+    &[type="file"]
+      height: 1.625em
+      line-height: 1.625em
+      padding: 0 0.25em
+
+    &[type="submit"]
+      -webkit-appearance: button
+      height: 1.125em
+
+    &[disabled]
+      border-color: $input-disabled-border-color
 
   fieldset
     border-top: $border-width solid $fieldset-border-color
@@ -97,6 +121,7 @@ form.formulate
 
     input
       @include button($submit-button-color)
+      vertical-align: baseline
 
     a
       font-weight: bold
