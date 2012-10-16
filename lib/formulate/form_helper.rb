@@ -4,7 +4,8 @@ module Formulate
 
     def form_for(record, options={}, &proc)
       options[:html] ||= {}
-      options[:html][:class] ||= 'formulate'
+      apply_form_for_options!(record, options)
+      options[:html][:class] << ' formulate'
 
       original_field_error_proc = ::ActionView::Base.field_error_proc
       ::ActionView::Base.field_error_proc = FIELD_ERROR_PROC
