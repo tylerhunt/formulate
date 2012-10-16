@@ -46,7 +46,7 @@ module Formulate
       errors = errors_on(method)
 
       classes = ['field']
-      classes << (options.delete(:required) ? 'required' : 'optional')
+      classes << (options[:required] ? 'required' : 'optional')
       classes << 'checkbox' if type == :check_box
       classes << 'radio' if type == :radio_button
       classes << 'error' if errors.any?
