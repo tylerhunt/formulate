@@ -53,6 +53,10 @@ module Formulate
       classes << options.delete(:class) if options[:class]
       classes.uniq!
 
+      if options[:placeholder] == true
+        options[:placeholder] = object.class.human_attribute_name(method)
+      end
+
       input = case type
         when :check_box
           checked_value = options.delete(:checked_value)
