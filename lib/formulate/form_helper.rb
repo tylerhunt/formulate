@@ -4,9 +4,17 @@ module Formulate
 
     def form_for(record, options={}, &proc)
       options[:html] ||= {}
-      apply_form_for_options!(record, options)
+
+      case record
+      when String, Symbol
+        options[:html][:class] ||= ''
+      else
+        apply_form_for_options!(record, options)
+      end
+
       options[:html][:class] << ' formulate'
       options[:html][:class] << " #{options[:class]}" if options[:class]
+      options[:html][:class].strip!
 
       original_field_error_proc = ::ActionView::Base.field_error_proc
       ::ActionView::Base.field_error_proc = FIELD_ERROR_PROC
