@@ -4,6 +4,7 @@ module Formulate
 
     def form_for(record, options={}, &proc)
       options[:html] ||= {}
+      options[:builder] ||= FormBuilder
 
       case record
       when String, Symbol
