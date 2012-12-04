@@ -1,3 +1,5 @@
+require 'formulate'
+
 module Formulate
   class Engine < ::Rails::Engine
     initializer 'formulate.initialize', before: 'action_view.set_configs' do |app|
