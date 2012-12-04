@@ -21,13 +21,6 @@ Add this line to your application's `Gemfile`:
 gem 'formulate'
 ```
 
-If you want to use the Formulate's `#form_for` helper by default, an engine
-is provided that will override Rails' helper:
-
-``` ruby
-gem 'formulate', require: 'formulate/engine'
-```
-
 And then execute:
 
     $ bundle
@@ -39,9 +32,9 @@ Or install it yourself as:
 
 ## Usage
 
-Formulate provides a helper module that can be included in your Rails
-controllers. You can also load the helper in your `ApplicationController` to
-use it across your whole app.
+Formulate provides a helper module to be included in your Rails controllers.
+You can also load the helper in your `ApplicationController` to use it across
+your entire app.
 
 ``` ruby
 class ApplicationController < ActionController::Base
@@ -52,10 +45,6 @@ end
 Formulate doesn't clobber any of the built-in form builder methods, so your
 forms should continue to work without modification, giving you the ability to
 selectively begin using Formulate in your applications where you see fit.
-
-If you're using the engine, the form builder will be used automatically
-whenever the `#form_for` helper is called, so you don't need to do anything
-special to start using it.
 
 
 ## Styles

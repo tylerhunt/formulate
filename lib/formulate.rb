@@ -1,4 +1,5 @@
 require 'formulate/version'
+require 'formulate/engine'
 
 module Formulate
   extend ActiveSupport::Autoload
