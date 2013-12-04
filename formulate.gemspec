@@ -1,22 +1,23 @@
 require './lib/formulate/version'
 
-Gem::Specification.new do |gem|
-  gem.name = 'formulate'
-  gem.version = Formulate::VERSION
-  gem.summary = 'Rails form builder with flexible markup and styles.'
-  gem.homepage = 'http://github.com/tylerhunt/formulate'
-  gem.author = 'Tyler Hunt'
+Gem::Specification.new do |spec|
+  spec.name = 'formulate'
+  spec.version = Formulate::VERSION
+  spec.authors = ['Tyler Hunt']
+  spec.summary = 'Rails form builder with flexible markup and styles.'
+  spec.homepage = 'https://github.com/tylerhunt/formulate'
+  spec.license = 'MIT'
 
-  gem.required_ruby_version = '>= 1.9'
+  spec.required_ruby_version = '>= 1.9'
 
-  gem.add_dependency 'actionpack', '~> 3.0'
-  gem.add_dependency 'activesupport', '~> 3.0'
-  gem.add_dependency 'carmen', '~> 0.2.0'
-  gem.add_dependency 'haml', '~> 3.0'
-  gem.add_dependency 'sass-rails', '~> 3.0'
+  spec.add_dependency 'actionpack', '~> 4.0'
+  spec.add_dependency 'activesupport', '~> 4.0'
+  spec.add_dependency 'carmen', '~> 0.2.0'
+  spec.add_dependency 'haml', '~> 4.0'
+  spec.add_dependency 'sass-rails', '~> 4.0'
 
-  gem.files = `git ls-files`.split($\)
-  gem.executables = gem.files.grep(%r{^bin/}).map { |f| File.basename(f) }
-  gem.test_files = gem.files.grep(%r{^(test|spec|features)/})
-  gem.require_paths = ['lib']
+  spec.files = `git ls-files`.split($\)
+  spec.executables = spec.files.grep(%r{^bin/}).map { |f| File.basename(f) }
+  spec.test_files = spec.files.grep(%r{^(test|spec|features)/})
+  spec.require_paths = ['lib']
 end

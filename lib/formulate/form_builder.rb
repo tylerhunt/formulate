@@ -96,7 +96,7 @@ module Formulate
 
       label = label != false ? label(method, label) : nil
       markup = [label, prefix, input, suffix].compact
-      markup.reverse! if type.in?(:check_box, :radio_button)
+      markup.reverse! if type.in?([:check_box, :radio_button])
 
       markup << @template.capture_haml do
         yield(object.send(method)) if block_given?

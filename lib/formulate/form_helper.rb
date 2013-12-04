@@ -10,7 +10,9 @@ module Formulate
       when String, Symbol
         options[:html][:class] ||= ''
       else
-        apply_form_for_options!(record, options)
+        object = record.is_a?(Array) ? record.last : record
+        raise ArgumentError, 'First argument in form cannot contain nil or be empty' unless object
+        apply_form_for_options!(record, object, options)
       end
 
       options[:html][:class] << ' formulate'
